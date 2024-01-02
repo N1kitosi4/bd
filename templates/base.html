@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet">
+    <style type="text/css">
+        html, body {
+        font-family: 'TimesNewRoman';
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #F1DAAE;
+        }
+
+        a {
+        color: #0059b2;
+        text-decoration: none;
+        }
+        a:hover {
+        color: #CC0000;
+        text-decoration: underline;
+        }
+
+        .clear {clear: both;}
+
+        ul.mainmenu {
+        list-style: none;
+        background: #91553D;
+        height: 60px;
+        margin: 0;
+        padding: 0;
+        color: Coral;
+        font-size: 20px;
+        overflow: hidden;
+        }
+        ul.mainmenu li {
+        float: left;
+        margin: 18px 40px 0 50px;
+        }
+        ul.mainmenu li.last {float: right;}
+
+        ul.mainmenu li a {
+        color: #fdc073;
+        text-decoration: none;
+        }
+        ul.mainmenu li a:hover {
+        color: Coral;
+        }
+
+        div.content {
+        margin: 10px;
+        }
+
+        .form-contact label {
+        display: inline-block;
+        min-width: 80px;
+        }
+        .form-contact p {margin: 10px 0 10px 0;}
+        .form-contact input[type=submit], textarea {
+        font-size: 16px;
+        }
+
+        .form-contact .invalid {
+        background: #FF9898;
+        }
+        .form-contact .invalid-feedback {
+        color: #CC0000;
+        }
+
+        .flash {padding: 10px;}
+        .flash.success {
+        border: 1px solid #21DB56;
+        background: #AEFFC5;
+        }
+        .flash.error {
+        border: 1px solid #FF4343;
+        background: #FF9C9C;
+        }
+
+
+    </style>
+    {% block title %}
+    {% if title %}
+    <title> {{title}}</title>
+    {% else %}
+    <title> ИНТЕРНЕТ-МАГАЗИН </title>
+    {% endif %}
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+{% block mainmenu%}
+<ul class="mainmenu">
+    {% for m in menu %}
+    <li><a href="{{m.url}}">{{m.name}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock mainmenu%}
+<div class="clear"></div>
+<div class="content">
+    {% if title %}
+    <h1>{{title}}</h1>
+    {% else %}
+    <h1>ИНТЕРНЕТ-МАГАЗИН</h1>
+    {% endif %}
+    {% endblock %}
+</div>
+</body>
+</html>

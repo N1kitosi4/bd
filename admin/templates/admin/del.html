@@ -1,0 +1,12 @@
+{% extends 'admin/base_admin.html' %}
+
+{%block content%}
+{{super()}}
+{%for cat, msg in get_flashed_messages(True)%}
+<div class="flash {{cat}}">{{msg}}</div>
+{%endfor%}
+<form action="/admin/del" method="post" class="form-contact">
+    <p><input type="number" placeholder="goods_id" name="goods_id" step="1" required><br></p>
+    <button type="submit">Удалить</button>
+</form>
+{%endblock%}

@@ -1,0 +1,12 @@
+{% extends 'admin/base_admin.html' %}
+
+{%block content%}
+{{super()}}
+{%for cat, msg in get_flashed_messages(True)%}
+<div class="flash {{cat}}">{{msg}}</div>
+{%endfor%}
+<form action="/admin/updord" method="post" class="form-contact">
+    <p><input type="float" placeholder="id_users" name="id_users" step="1" required><br></p>
+    <button type="submit">Обновить стоимость</button>
+</form>
+{%endblock%}

@@ -1,0 +1,25 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block content %}
+{{ super() }}
+<h1>{{title}}</h1>
+<ul class="list-posts">
+    {% for p in list %}
+    <table width="300px" border="1px solid black">
+        <tr>
+            <th>id</th>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Цена</th>
+        </tr>
+        <tr>
+            <td>{{p[0]}}</td>
+            <td>{{p[1]}}</td>
+            <td>{{p[2]}}</td>
+            <td>{{p[3]}}</td>
+        </tr>
+    </table>
+    {% endfor %}
+</ul>
+<!--<p><a href="{{url_for('.index')}}"> СПИСОК ДОРОГИХ ЗАКАЗОВ</a></p>-->
+{% endblock %}

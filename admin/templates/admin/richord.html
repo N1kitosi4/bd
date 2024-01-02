@@ -1,0 +1,28 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block content %}
+{{ super() }}
+<h1>{{title}}</h1>
+<ul class="list-posts">
+    {%if list%}
+    {% for p in list %}
+    <table width="300px" border="1px solid black">
+        <tr>
+            <th>id_order</th>
+            <th>id_user</th>
+            <th>total_price</th>
+        </tr>
+        <tr>
+            <td>{{p[0]}}</td>
+            <td>{{p[1]}}</td>
+            <td>{{p[4]}}</td>
+        </tr>
+    </table>
+    {% endfor %}
+    {%else%}
+    <p>Нет заказов дороже 100_000</p>
+    {%endif%}
+
+
+</ul>
+{% endblock %}
